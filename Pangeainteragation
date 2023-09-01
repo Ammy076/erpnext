@@ -1,0 +1,15 @@
+import requests
+
+# Make a GET request to fetch a list of customers
+response = requests.get('https://your-erpnext-instance/api/resource/Customer',
+                        headers={'Authorization': 'Bearer your-api-token'})
+
+# Check the response status code
+if response.status_code == 200:
+    customers = response.json().get('data')
+    # Process the list of customers
+    for customer in customers:
+        # Perform actions or sync data with Pangea
+        pass
+else:
+    print('Failed to fetch customers:', response.text)
